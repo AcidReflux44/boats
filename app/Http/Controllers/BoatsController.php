@@ -60,7 +60,7 @@ class BoatsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view ('boats.edit')->with('boat',$boat);
     }
 
     /**

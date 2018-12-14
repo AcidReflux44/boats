@@ -12,7 +12,7 @@
 						'placeholder'=>'mon bateau'
 					])
 				!!}
-			</div >
+			</div>
 			<div class ="form-group">
 				{!! Form::label('modele','Marque et type : ',
 					['class'=>'control-label'])
@@ -22,8 +22,8 @@
 						'placeholder'=>'modèle du bateau'
 					])
 				!!}
-			</div >
+			</div>
 			{!! Form::close() !!}
-		</div >
-	</div >
+		</div>
+	</div>
 @endsection

@@ -12,4 +12,12 @@ class Boats extends Model use SoftDeletes{
 		'started_at',
 		'update_at'
 	];
+	
+	protected $fillable = [
+		'nom',
+		'modele',
+		'longueur',
+		'largeur',
+		'date_construction'
+	];
 }
