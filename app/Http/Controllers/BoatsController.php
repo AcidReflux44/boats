@@ -88,6 +88,9 @@ class BoatsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $boat->delete();
+		redirect()
+			->route('boats.index')
+			->with('message', 'Le bateu aété correctement effacé');
     }
 }
