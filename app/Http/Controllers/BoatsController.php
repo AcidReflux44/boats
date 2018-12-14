@@ -72,7 +72,12 @@ class BoatsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $boat->update(
+			$request->input()
+		);
+		return redirect()
+			->route('boats.edit', $boat)
+			->with('message', 'Bateau correctement mis à jour');
     }
 
     /**
