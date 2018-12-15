@@ -11,19 +11,19 @@
 	</head> 
 	
 	<body>
-		<div class="titre">
+		<div class="titre-site">
 			<h1>Nom du port</h1>
 		</div>
-		<div name="menu">
+		<div name="menu-site">
 			<!-- marche pas -->
 			<!-- <ul class="nav navbar-nav masthead-nav navbar-left">
-				<li {{  (Request::url()=="http://localhost/facture/1") ? 'class=active' : '' }}>
+				<li {{	(Request::url()=="http://localhost/facture/1") ? 'class=active' : '' }}>
 					<a href="http://localhost/facture/1">Facture1</a>
 				</li>
-				<li {{  (Request::url()=="http://localhost/facture/2") ? 'class=active' : '' }}>
+				<li {{	(Request::url()=="http://localhost/facture/2") ? 'class=active' : '' }}>
 					<a href="http://localhost/facture/2">Facture2</a>
 				</li>
-				<li {{  (Request::url()=="http://localhost/facture/3") ? 'class=active' : '' }}>
+				<li {{	(Request::url()=="http://localhost/facture/3") ? 'class=active' : '' }}>
 					<a href="http://localhost/facture/3">Facture3</a>
 				</li>
 			</ul> -->
@@ -33,20 +33,49 @@
 			  <form class="form-inline">
 				<a class="btn btn-dark {{ 
 					(Request::url()=="http://localhost/accueil") ? 'active' : ''
-				}} " type="button" href="http://localhost/accueil">Accueil</a>
+				}} " type="button" href="http://localhost/accueil" class="nav-link">Accueil</a>
 				<a class="btn btn-dark {{ 
 					(Request::url()=="http://localhost/facture/1") ? 'active' : ''
-				}} " type="button" href="http://localhost/facture/1">Facture1</a>
+				}} " type="button" href="http://localhost/facture/1" class="nav-link">Facture1</a>
 				<a class="btn btn-dark {{ 
 					(Request::url()=="http://localhost/facture/2") ? 'active' : ''
-				}} " type="button" href="http://localhost/facture/2">Facture2</a>
+				}} " type="button" href="http://localhost/facture/2" class="nav-link">Facture2</a>
 				<a class="btn btn-dark {{ 
 					(Request::url()=="http://localhost/facture/3") ? 'active' : ''
-				}} " type="button" href="http://localhost/facture/3">Facture3</a>
+				}} " type="button" href="http://localhost/facture/3" class="nav-link">Facture3</a>
 			  </form>
 			</nav>
 			
-			<!-- modèle 2 
+			<!-- modèle 2
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="btn btn-dark {{ 
+					(Request::url()=="http://localhost/accueil") ? 'active' : ''
+				}} " type="button" href="http://localhost/accueil" class="nav-link">Accueil</a>
+				<a class="btn btn-dark {{ 
+					(Request::url()=="http://localhost/facture/1") ? 'active' : ''
+				}} " type="button" href="http://localhost/facture/1" class="nav-link">Facture1</a>
+				<a class="btn btn-dark {{ 
+					(Request::url()=="http://localhost/facture/2") ? 'active' : ''
+				}} " type="button" href="http://localhost/facture/2" class="nav-link">Facture2</a>
+				<a class="btn btn-dark {{ 
+					(Request::url()=="http://localhost/facture/3") ? 'active' : ''
+				}} " type="button" href="http://localhost/facture/3" class="nav-link">Facture3</a>
+				
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-item nav-link" href="#">Se connecter <span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link" href="#">S'inscrire</a>
+						<a class="nav-item nav-link" href="#">Profil</a>
+						<a class="nav-item nav-link disabled" href="#">Disabled</a>
+					</div>
+				</div>
+			</nav>
+			
+			<!-- modèle 3
 			<nav class="navbar navbar-dark bg-dark">
 			  <form class="form-inline">
 				<button class="btn btn-outline-light {{ 
@@ -64,7 +93,7 @@
 			  </form>
 			</nav> -->
 		</div>
-		<div class="contenu">
+		<div class="contenu-page">
 			@yield('contenu')
 		</div>
 		
