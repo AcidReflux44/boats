@@ -33,6 +33,10 @@ Route::get('facture/{n}', function ($n) {
     return view('facture')->with('numero',$n);
 })->where('n', '[0-9]+');
 
+Route::get('accueil', function () {
+    return view('accueil');
+});
+
 Route::resource('boats', 'BoatsController');
 
 // Route::get('boats/create', 'BoatsController@create');
