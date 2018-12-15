@@ -75,7 +75,8 @@
 				</div>
 			</nav>
 			
-			<!-- modèle 3
+			<!-- un peu bizarre l'affichage -->
+			<!-- modèle 3 un
 			<nav class="navbar navbar-dark bg-dark">
 			  <form class="form-inline">
 				<button class="btn btn-outline-light {{ 
