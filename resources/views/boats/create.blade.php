@@ -23,7 +23,7 @@
 					])
 				!!}
 			</div>
-			{!! Form::close() !!}
+			{!! Form::submit(); Form::close() !!}
 		</div>
 	</div>
 @endsection

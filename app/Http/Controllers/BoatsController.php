@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Boats;
 use Illuminate\Http\Request;
 
 class BoatsController extends Controller
@@ -13,7 +14,7 @@ class BoatsController extends Controller
      */
     public function index()
     {
-        //
+        return 'index';
     }
 
     /**
@@ -34,9 +35,14 @@ class BoatsController extends Controller
      */
     public function store(Request $request)
     {
-        $boat=Boats::create(
-			$request->input()
+        $boat = Boats::create(
+			$request->input() + [
+			    'longueur' => 80,
+                'largeur' => 20,
+                'date_construction' => '2000/01/01'
+            ]
 		);
+
 		flash('Nouveau bateau enregistré !')->success();
 		return redirect()->route('boats.show', ['boat'=>$boat]);
     }
@@ -47,9 +53,10 @@ class BoatsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        //
+        $boat = Boats::findOrFail($id);
+        return view('boats.show')->with('boat', $boat);
     }
 
     /**
@@ -60,6 +67,7 @@ class BoatsController extends Controller
      */
     public function edit($id)
     {
+        $boat = Boats::findOrFail($id);
         return view ('boats.edit')->with('boat',$boat);
     }
 

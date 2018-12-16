@@ -39,4 +39,6 @@ Route::get('accueil', function () {
 
 Route::resource('boats', 'BoatsController');
 
+Route::view('profil', 'profil');
+
 // Route::get('boats/create', 'BoatsController@create');
