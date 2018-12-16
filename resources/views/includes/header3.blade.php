@@ -15,12 +15,18 @@
 	<button id="right-side-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
+	<a id="right-side-button" class="btn btn-danger {{ 
+		(Request::url()=="http://localhost/deconnexion") ? 'active' : ''
+	}} " href="#" class="nav-link">Deconnexion</a>
 	
 	
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav">
-			<a class="nav-item nav-link" href="#">Se connecter <span class="sr-only">(current)</span></a>
-			<a class="nav-item nav-link" href="#">S'inscrire</a>
+			<a class="nav-item nav-link" href="http://localhost/profil">Profile</a>
+			<a class="nav-item nav-link" href="http://localhost/profil">Editer la liste des places</a>
+			<a class="nav-item nav-link" href="http://localhost/profil">voir les bâteaux stationnés</a>
+			<a class="nav-item nav-link" href="http://localhost/profil">Liste des réservations</a>
+			<a class="nav-item nav-link" href="http://localhost/profil">Liste des demandes de réservation</a>
 		</div>
 	</div>
   </form>
