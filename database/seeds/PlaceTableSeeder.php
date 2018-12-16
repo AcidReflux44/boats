@@ -17,7 +17,7 @@ class PlaceTableSeeder extends Seeder
 		
 		foreach(range(1, 10) as $index){
 			Place::create([
-				'nom-image'=>$faker->name,
+				'nom-image'=>'images/image.svg',
 				'longueur'=>$faker->randomFloat(4, 0, 600),
 				'largeur'=>$faker->randomFloat(4, 0, 600),
 				'tarif'=>$faker->randomFloat(4, 0, 600),

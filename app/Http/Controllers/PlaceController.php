@@ -45,7 +45,8 @@ class PlaceController extends Controller
      */
     public function show($id)
     {
-        //
+        $place = Place::findOrFail($id);
+        return view('place.show')->with('place', $place);
     }
 
     /**
