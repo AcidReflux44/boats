@@ -15,7 +15,7 @@ class BoatTableSeeder extends Seeder
 		DB::table('boats')->truncate();
 		$faker=\Faker\Factory::create();
 		
-		foreach(range(1, 50) as $index){
+		foreach(range(1, 10) as $index){
 			Boats::create([
 				'nom'=>$faker->name,
 				'modele'=>$faker->sentence(2),
