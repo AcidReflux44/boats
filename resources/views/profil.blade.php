@@ -20,6 +20,11 @@
 @section('contenu')
     <div class="container mt-4">
         <div class="row">
+            <button type="button" class="btn btn-danger"><span class="fas fa-plus"></span></button>
+            <button type="button" class="btn btn-warning">Réservation</button>
+        <button type="button" class="btn btn-dark"><span class="glyph glyphicon-plus"></span></button>
+        </div>
+        <div class="row">
             <div class="col-md-2">
                 <img src="images/person.svg" width="200" height="200" class="img-fluid img-thumbnail rounded p-4 bg-light">
             </div>
