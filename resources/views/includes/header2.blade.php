@@ -10,8 +10,8 @@
 		(Request::url()=="http://localhost/plusInfo") ? 'active' : ''
 	}} " href="http://localhost/plusInfo" class="nav-link">Plus sur nous</a>
 	<a class="btn btn-dark {{ 
-		(Request::url()=="http://localhost/contacter") ? 'active' : ''
-	}} " href="http://localhost/contacter" class="nav-link">Nous contacter</a>
+		(Request::url()=="http://localhost/contact") ? 'active' : ''
+	}} " href="http://localhost/contact" class="nav-link">Nous contacter</a>
 	<button id="right-side-button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>

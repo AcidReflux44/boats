@@ -5,6 +5,7 @@
 @endsection
 
 @section ('contenu')
+<div class="wrapper">
 	<p>Bienvenue sur notre site</p>
 	<table>
 		<tr>
@@ -19,4 +20,7 @@
 			<td><img class="img-fluid" alt="Responsive image" src="/images/port3.jpg" /></td>
 			<td>Illud autem non dubitatur quod cum esset aliquando virtutum omnium domicilium Roma, ingenuos advenas plerique nobilium, ut Homerici bacarum suavitate Lotophagi, humanitatis multiformibus officiis retentabant.</td>
 		</tr>
+	</table>
+</div>
+
 @endsection
