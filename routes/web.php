@@ -18,7 +18,7 @@ use App\Boats;
     // return view('view1');
 // });
 
-
+// Route::get('/home', 'HomeController@index');
 Route::get('/', function () {
     return view('accueil');
 });
@@ -47,4 +47,5 @@ Route::get('profil', function() {
 
 Route::view('contact', 'contact');
 
+Route::auth();
 // Route::get('boats/create', 'BoatsController@create');
