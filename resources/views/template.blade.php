@@ -11,37 +11,57 @@
 		<!-- pour font awesome -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
-	@yield('css', '')
+		@yield('css', '')
 		<!-- le style qui suit est pour aligner les bouton #right-side-button a droite -->
 		<style>
+			/*pour le bouton toggle*/
 			.navbar-header{
 			  width:100%;
 			}
 			#right-side-button{
 			  float:right;
 			}
+			/*pour le footer*/
+			html, body {
+				height: 100%;
+			}
+			#main-container {
+				min-height: 100%;
+				padding-bottom: 70px;
+			}
 			footer {
 				background-color: #736699;
+				position: relative;
+				height: 70px;
+				margin-top: -70px;
+				clear: both;
 			}
 		</style>
 	</head>
 	
 	<body>
-		<div class="titre-site">
-			<h1>Nom du port</h1>
-		</div>
-		<div name="menu-site">
-			<!-- ici il faut voir si on est connectés ou pas pour choisir le bon header -->
-			@include('includes.header2')
-		</div>
+		<?php
+		function current_page($uri = "/") {
+			return strstr(request()->path(), $uri);
+		}
+		?>
+
+		<div class="container-fluid" id="main-container">
+			<div class="titre-site">
+				<h1>Nom du port</h1>
+			</div>
+			
+			<div name="menu-site">
+				<!-- ici il faut voir si on est connectés ou pas pour choisir le bon header -->
+				@include('includes.header2')
+			</div>
 		
-		<div class="container-fluid">
-			<div class="contenu-page">
+			<div class="container-fluid" id="contenu-page">
 				@yield('contenu')
 			</div>
 		</div>
 		
-		<footer class="page-footer font-small indigo">
+		<footer class="page-footer font-small">
 			@include('includes.footer')
 		</footer>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
