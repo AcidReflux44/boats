@@ -96,9 +96,9 @@ class BoatsController extends Controller
      */
     public function destroy($id)
     {
+        $boat = Boats::findOrFail($id);
         $boat->delete();
-		redirect()
-			->route('boats.index')
-			->with('message', 'Le bateu aété correctement effacé');
+		return redirect('profil')
+			->with('message', 'Le bateau a été correctement effacé');
     }
 }

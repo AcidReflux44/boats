@@ -19,10 +19,10 @@
 
 @section('contenu')
     <div class="container mt-4">
-        <div class="row">
-            <button type="button" class="btn btn-danger"><span class="fas fa-plus"></span></button>
-            <button type="button" class="btn btn-warning">Réservation</button>
-        <button type="button" class="btn btn-dark"><span class="glyph glyphicon-plus"></span></button>
+        <div class="row mb-4 p-4">
+            <a role="button" href="{!! URL::route('boats.create')!!}" class="btn btn-sm btn-danger m-1"><span class="fas fa-plus"></span> Ajouter bâteau</a>
+            <a role="button" href="#" class="btn btn-sm btn-warning m-1"><span class="fas fa-question"></span>Demande reservation</a>
+            <a role="button" href="#" class="btn btn-sm btn-dark m-1"><span class="fas fa-wrench"></span>Ajouter maintenance</a>
         </div>
         <div class="row">
             <div class="col-md-2">
@@ -39,11 +39,34 @@
                 @yield('droite')
             </div>
         </div>
+
+        <?php $boats = App\Boats::all(); ?>
+
         <div class="row mt-5">
             <div class="col-md-12">
-                <ul class="list-group">
-                    <h5 >Ma Liste de Bâteaux</h5>
-                </ul>
+                <h5 >Ma Liste de Bâteaux</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nom</th>
+                            <th>Modèle</th>
+                            <th scope="col">Longueur</th>
+                            <th>Largeur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($boats as $boat)
+                            <tr scope="row">
+                                <td>{{ $boat->id }}</td>
+                                <td><a href="{!! URL::route('boats.show', $boat) !!}">{{ $boat->nom }}</a></td>
+                                <td>{{ $boat->modele }}</td>
+                                <td>{{ $boat->longueur }}</td>
+                                <td>{{ $boat->largeur }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="row mt-5">

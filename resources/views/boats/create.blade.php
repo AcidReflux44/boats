@@ -1,5 +1,5 @@
-@extends ('layouts.app')
-@section ('content')
+@extends ('template')
+@section ('contenu')
 	<div class ="row">
 		<div class ="col">
 			{!! Form::open(['route'=>'boats.store'],['class'=>'form']) !!}
@@ -20,6 +20,26 @@
 				{!! Form::text('modele', null, [
 						'class'=>'form-control input-lg',
 						'placeholder'=>'modèle du bateau'
+					])
+				!!}
+			</div>
+			<div class ="form-group">
+				{!! Form::label('longueur','Longueur : ',
+					['class'=>'control-label'])
+				!!}
+				{!! Form::text('longueur', null, [
+						'class'=>'form-control input-lg',
+						'placeholder'=>'longueur du bateau'
+					])
+				!!}
+			</div>
+			<div class ="form-group">
+				{!! Form::label('largeur','Largeur : ',
+					['class'=>'control-label'])
+				!!}
+				{!! Form::text('largeur', null, [
+						'class'=>'form-control input-lg',
+						'placeholder'=>'largeur du bateau'
 					])
 				!!}
 			</div>
