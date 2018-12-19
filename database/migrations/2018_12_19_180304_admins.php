@@ -15,8 +15,8 @@ class Admins extends Migration
     {
         Schema::create('admins', function(Blueprint $table) {
 
-            $table->integer('utilisateur_id');
-            $table->foreign('utilisateur_id')->reference('id')->on('users');
+            $table->integer('user_id');
+            $table->foreign('user_id')->reference('id')->on('users');
         });
     }
 
