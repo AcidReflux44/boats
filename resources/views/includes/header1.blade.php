@@ -19,8 +19,8 @@
 	
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		<div class="navbar-nav">
-			<a class="nav-item nav-link" href="#">Se connecter <span class="sr-only">(current)</span></a>
-			<a class="nav-item nav-link" href="#">S'inscrire</a>
+			<a class="nav-item nav-link" href="http://localhost/login">Se connecter <span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link" href="http://localhost/register">S'inscrire</a>
 		</div>
 	</div>
   </form>
