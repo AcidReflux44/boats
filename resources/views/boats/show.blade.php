@@ -15,5 +15,6 @@
         'method' => 'delete'
     ]) !!}
     {!! Form::submit('Supprimer le bâteau', ['class' => 'btn btn-danger']) !!}
+	<a class="btn btn-info" href="http://localhost/profil">Retour au profil</a>
     {!! Form::close() !!}
 @endsection
