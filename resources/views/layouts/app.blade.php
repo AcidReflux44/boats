@@ -1,3 +1,6 @@
+<?php
+use Auth;
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -40,8 +43,12 @@
 		</div>
 		
 		<div name="menu-site">
+		@include('includes.header1')
+		<!--@if(Auth::check())
+			@include('includes.header2')
+		@else
 			@include('includes.header1')
-		</div>
+		</div>-->
 
         <main class="py-4">
             @yield('content')
