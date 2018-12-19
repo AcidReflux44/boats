@@ -40,7 +40,11 @@
 			</div>
 			
 			<div name="menu-site">
-				@include('includes.header1')
+				@if(Auth::guest())
+					@include('includes.header1')
+				@else
+					@include('includes.header2')
+				@endif
 			</div>
 
 			<main class="py-4">
