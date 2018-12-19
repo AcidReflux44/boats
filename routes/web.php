@@ -19,7 +19,7 @@ use App\Boats;
 // });
 
 // Route::get('/home', 'HomeController@index');
-// Route::auth();
+Route::auth();
 Route::get('/', function () {
     return view('accueil');
 });
@@ -49,3 +49,6 @@ Route::resource('boats', 'BoatsController');
 Route::get('profil', function() {
     return view('profil');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
