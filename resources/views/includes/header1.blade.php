@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
   <form class="navbar-header">
 	<a class="btn btn-dark {{ 
-		(current_page('accueil')) ? 'active' : ''
+		(current_page('accueil') || current_page()) ? 'active' : ''
 	}} " href="http://localhost/accueil" class="nav-link">Accueil</a>
 	<a class="btn btn-dark {{ 
 		(current_page('lister')) ? 'active' : ''
