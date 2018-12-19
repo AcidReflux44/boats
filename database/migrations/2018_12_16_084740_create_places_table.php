@@ -20,6 +20,9 @@ class CreatePlacesTable extends Migration
 			$table->decimal('longueur', 6, 2);
 			$table->decimal('largeur', 6, 2);
 			$table->decimal('tarif', 6, 2);
+
+			$table->integer('bateau_id')->nullable();
+			$table->foreign('bateau_id')->references('id')->on('boats');
         });
     }
 
