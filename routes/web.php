@@ -55,8 +55,17 @@ Route::get('plusInfo', function () {
 Route::resource('boats', 'BoatsController');
 
 Route::get('profil', function() {
-    return view('profil');
+
+    $owns = App\Owner::where('user_id', Auth::id());
+    $boats = [];
+
+    foreach($owns as $own) {
+        $boats[] = Boats::find($own->boat_id);
+    }
+
+    return view('profil')->with('boats', $boats);
 });
+
 Auth::routes();
 Route::get('/logout', function(){
    Auth::logout();

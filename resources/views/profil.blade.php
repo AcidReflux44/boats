@@ -40,8 +40,6 @@
             </div>
         </div>
 
-        <?php $boats = App\Boats::all(); ?>
-
         <div class="row mt-5">
             <div class="col-md-12">
                 <h5 >Ma Liste de Bâteaux</h5>
