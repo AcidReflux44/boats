@@ -48,6 +48,10 @@ Route::get('lister', function () {
     return view('lister');
 });
 
+Route::get('plusInfo', function () {
+    return view('plusInfo');
+});
+
 Route::resource('boats', 'BoatsController');
 
 Route::get('profil', function() {
