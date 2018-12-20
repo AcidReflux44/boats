@@ -52,3 +52,5 @@ Route::get('profil', function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::view('reservation', 'reservation');
