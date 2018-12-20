@@ -44,6 +44,10 @@ Route::get('contact', function () {
     return view('contact');
 });
 
+Route::get('lister', function () {
+    return view('lister');
+});
+
 Route::resource('boats', 'BoatsController');
 
 Route::get('profil', function() {
