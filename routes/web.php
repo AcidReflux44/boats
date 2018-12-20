@@ -56,7 +56,7 @@ Route::resource('boats', 'BoatsController');
 
 Route::get('profil', function() {
 
-    $owns = App\Owner::where('user_id', Auth::id());
+    $owns = App\Owner::where('user_id', Auth::id())->get();
     $boats = [];
 
     foreach($owns as $own) {

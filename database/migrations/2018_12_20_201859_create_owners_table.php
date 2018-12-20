@@ -15,6 +15,8 @@ class CreateOwnersTable extends Migration
     {
         Schema::create('owners', function(Blueprint $table) {
 
+            $table->timestamps();
+
             $table->integer('user_id');
             $table->foreign('user_id')->references('id')->on('users');
 

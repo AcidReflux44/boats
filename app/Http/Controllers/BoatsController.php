@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Boats;
+use App\Owner;
 use Illuminate\Http\Request;
 
 class BoatsController extends Controller
@@ -37,11 +39,14 @@ class BoatsController extends Controller
     {
         $boat = Boats::create(
 			$request->input() + [
-			    'longueur' => 80,
-                'largeur' => 20,
                 'date_construction' => '2000/01/01'
             ]
 		);
+
+        Owner::create([
+            'boat_id' => $boat->id,
+            'user_id' => Auth::id()
+        ]);
 
 		flash('Nouveau bateau enregistré !')->success();
 		return redirect()->route('boats.show', ['boat'=>$boat]);
