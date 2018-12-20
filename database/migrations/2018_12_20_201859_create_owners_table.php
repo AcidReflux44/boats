@@ -16,10 +16,10 @@ class CreateOwnersTable extends Migration
         Schema::create('owners', function(Blueprint $table) {
 
             $table->integer('user_id');
-            $table->foreign('user_id')->reference('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->integer('boat_id');
-            $table->foreign('boat_id')->reference('id')->on('boats');
+            $table->foreign('boat_id')->references('id')->on('boats');
         });
     }
 
