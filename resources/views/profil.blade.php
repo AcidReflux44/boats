@@ -30,9 +30,9 @@
             </div>
 
             <div class="col-md-7">
-                <div class="font-weight-bold">Prénom Nom</div>
-                <div>date de naissance</div>
-                <div>email</div>
+                <div class="font-weight-bold">{{ Auth::user()->name }}</div>
+                <div>{{ Auth::user()->email }}</div>
+                <div>ID : {{ Auth::user()->id }}</div>
             </div>
 
             <div class="col-md-3 pt-3">

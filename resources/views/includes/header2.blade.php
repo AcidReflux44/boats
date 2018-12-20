@@ -17,7 +17,7 @@
 	</button>
 	<a id="right-side-button" class="btn btn-danger {{ 
 		(Request::url()=="http://localhost/deconnexion") ? 'active' : ''
-	}} " href="#" class="nav-link">Deconnexion</a>
+	}} " href="/logout" class="nav-link">Deconnexion</a>
 	
 	
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">

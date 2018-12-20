@@ -53,7 +53,11 @@
 			
 			<div name="menu-site">
 				<!-- ici il faut voir si on est connectés ou pas pour choisir le bon header -->
-				@include('includes.header2')
+				@if(Auth::guest())
+					@include('includes.header1')
+				@else
+					@include('includes.header2')
+				@endif
 			</div>
 		
 			<div class="container-fluid" id="contenu-page">
