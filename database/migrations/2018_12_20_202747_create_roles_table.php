@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Admins extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class Admins extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function(Blueprint $table) {
+        Schema::create('roles', function(Blueprint $table) {
 
             $table->integer('user_id');
             $table->foreign('user_id')->reference('id')->on('users');
+            $table->integer('privilege'); // 1: Gestionnaire de port, 2: Admin
         });
     }
 
@@ -27,6 +28,6 @@ class Admins extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('roles');
     }
 }
