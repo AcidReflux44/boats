@@ -18,10 +18,10 @@ class CreateOwnersTable extends Migration
             $table->timestamps();
 
             $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->integer('boat_id');
-            $table->foreign('boat_id')->references('id')->on('boats');
+            $table->foreign('boat_id')->references('id')->on('boats')->onDelete('cascade') ;
         });
     }
 
