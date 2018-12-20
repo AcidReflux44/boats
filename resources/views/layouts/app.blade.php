@@ -36,11 +36,15 @@
 		?>
 		<div class="container-fluid" id="app">
 			<div class="titre-site">
-				<h1>Nom du port</h1>
+				<h1>Port de Riji</h1>
 			</div>
 			
 			<div name="menu-site">
-				@include('includes.header1')
+				@if(Auth::guest())
+					@include('includes.header1')
+				@else
+					@include('includes.header2')
+				@endif
 			</div>
 
 			<main class="py-4">

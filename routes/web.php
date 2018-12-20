@@ -44,12 +44,24 @@ Route::get('contact', function () {
     return view('contact');
 });
 
+Route::get('lister', function () {
+    return view('lister');
+});
+
+Route::get('plusInfo', function () {
+    return view('plusInfo');
+});
+
 Route::resource('boats', 'BoatsController');
 
 Route::get('profil', function() {
     return view('profil');
 });
 Auth::routes();
+Route::get('/logout', function(){
+   Auth::logout();
+   return Redirect::to('login');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
