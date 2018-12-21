@@ -31,8 +31,6 @@
                             <td>{{ $boat->modele }}</td>
                             <td>{{ $boat->longueur }}</td>
                             <td>{{ $boat->largeur }}</td>
-                            <?php $users=$boat->users();
-                            var_dump($users) ?>
                         </tr>
                     @endforeach
                     </tbody>
