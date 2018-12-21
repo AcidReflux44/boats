@@ -17,17 +17,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $reservations = App\Boat::all();
-                ?>
-                    @foreach($reservations as $reservation)
+                @foreach($reservations as $reservation)
                     <tr scope="row">
                         <td>{{ $reservation->id }}</td>
-                        <td>Miama Bitch</td>
                         <td>{{ $reservation->longueur }}</td>
                         <td>{{ $reservation->largeur }}</td>
-                        <td>2000/01/01</td>
-                        <td>2001/01/01</td>
+                        <td>{{ $reservation->date_debut }}</td>
+                        <td>{{ $reservation->date_fin }}</td>
                     </tr>
                 @endforeach
             </tbody>

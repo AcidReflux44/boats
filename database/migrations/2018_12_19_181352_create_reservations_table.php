@@ -16,7 +16,11 @@ class Reservations extends Migration
         Schema::create('reservations', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('place_id')->unsigned();
+            $table->timestamps();
+            $table->softDeletes();
+            $table->decimal('longueur',4 ,2);
+            $table->decimal('largeur',4 ,2);
+            $table->integer('place_id')->unsigned()->nullable();
             $table->foreign('place_id')->references('id')->on('places');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
