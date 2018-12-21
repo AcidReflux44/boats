@@ -16,9 +16,9 @@ class Reservations extends Migration
         Schema::create('reservations', function(Blueprint $table) {
 
             $table->increments('id');
-            $table->integer('place_id');
+            $table->integer('place_id')->unsigned();
             $table->foreign('place_id')->references('id')->on('places');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->date('date_debut');
             $table->date('date_fin');

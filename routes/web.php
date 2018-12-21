@@ -2,6 +2,8 @@
 
 use App\Boat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input as input;
+use App\User;
 // use App\Http\Controllers;
 
 /*
@@ -77,6 +79,21 @@ Route::get('/logout', function(){
    Auth::logout();
    return Redirect::to('login');
 });
+/*pour le changement de mot de passe*/
+Route::get('/changePassword', function(){
+	return view('auth.changePassword');
+});
+Route::post('change/password', function(){
+	$user=User::find(Auth::user()->id);
+	if(Hash::check(Input::get('passwordold'), $user['password']) && Input::get('password')==Input::get('password-confirm')) {
+		$user->password=bcrypt(Input::get('password'));
+		$user->save();
+		return back()->with('status', 'Password Changed');
+	}else{
+		return back()->with('status', 'Password NOT changed');
+	}
+});
+/*fin changement mot de passe*/
 
 Route::get('/home', 'HomeController@index')->name('home');
 
