@@ -13,7 +13,7 @@ class CreateBoatPlacesTable extends Migration
      */
     public function up()
     {
-        Schema::create('boat_places', function (Blueprint $table) {
+        Schema::create('boat_place', function (Blueprint $table) {
             $table->integer('boat_id')->unsigned();
             $table->foreign('boat_id')->references('id')->on('boats')->onDelete('cascade');
 
@@ -29,6 +29,6 @@ class CreateBoatPlacesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boat_places');
+        Schema::dropIfExists('boat_place');
     }
 }
