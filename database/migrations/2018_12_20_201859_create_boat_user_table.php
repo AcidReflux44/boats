@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOwnersTable extends Migration
+class CreateBoatUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateOwnersTable extends Migration
      */
     public function up()
     {
-        Schema::create('owners', function(Blueprint $table) {
+        Schema::create('boat_user', function(Blueprint $table) {
 
-            $table->timestamps();
-
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->integer('boat_id');
-            $table->foreign('boat_id')->references('id')->on('boats')->onDelete('cascade') ;
+            $table->integer('boat_id')->unsigned();
+            $table->foreign('boat_id')->references('id')->on('boats')->onDelete('cascade');
         });
     }
 
@@ -32,6 +30,6 @@ class CreateOwnersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('owners');
+        Schema::dropIfExists('boat_user');
     }
 }

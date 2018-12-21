@@ -5,9 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 
-class Boats extends Model {
+class Boat extends Model {
 
     use SoftDeletes;
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 
     protected $dates=[
 		'created_at',

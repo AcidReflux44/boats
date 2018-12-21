@@ -1,6 +1,6 @@
 <?php
 
-use App\Boats;
+use App\Boat;
 use Illuminate\Database\Seeder;
 
 class BoatTableSeeder extends Seeder
@@ -16,7 +16,7 @@ class BoatTableSeeder extends Seeder
 		$faker=\Faker\Factory::create();
 		
 		foreach(range(1, 10) as $index){
-			Boats::create([
+			Boat::create([
 				'nom'=>$faker->name,
 				'modele'=>$faker->sentence(2),
 				'longueur'=>$faker->randomFloat(2, 0, 15),

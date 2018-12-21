@@ -1,6 +1,7 @@
 <?php
 
 use App\Boats;
+use Illuminate\Http\Request;
 // use App\Http\Controllers;
 
 /*
@@ -55,15 +56,20 @@ Route::get('plusInfo', function () {
 Route::resource('boats', 'BoatsController');
 
 Route::get('profil', function() {
+    return view('profil')
+        ->with('boats', Auth::user()->boats());
+});
 
-    $owns = App\Owner::where('user_id', Auth::id())->get();
-    $boats = [];
+Route::get('edit-profil', function() {
+    return view('profil')
+        ->with('boats', Auth::user()->boats())
+        ->with('edit', 1);
+});
 
-    foreach($owns as $own) {
-        $boats[] = Boats::find($own->boat_id);
-    }
+Route::post('save-profil', function(Request $request) {
 
-    return view('profil')->with('boats', $boats);
+    Auth::user()->update($request->all());
+    return redirect('profil');
 });
 
 Auth::routes();

@@ -10,7 +10,7 @@
 @endsection
 @section('droite')
     <div class="list-group" id="menu-profil">
-        <a class="list-group-item list-group-item-action list-group-item-primary">Modifier profil</a>
+        <a href="edit-profil" class="list-group-item list-group-item-action">Modifier profil</a>
         <a class="list-group-item list-group-item-action">liste bâteaux</a>
         <a class="list-group-item list-group-item-action ">liste places</a>
         <a class="list-group-item list-group-item-action">liste maintenances</a>
@@ -30,9 +30,23 @@
             </div>
 
             <div class="col-md-7">
-                <div class="font-weight-bold">{{ Auth::user()->name }}</div>
-                <div>{{ Auth::user()->email }}</div>
-                <div>ID : {{ Auth::user()->id }}</div>
+                @if(!empty($edit))
+                    {!! Form::open(['url' => 'save-profil', 'class' => 'form']) !!}
+                    <div class="form-group w-50">
+                        {!! Form::text('name', Auth::user()->name, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group w-50">
+                        {!! Form::email('email', Auth::user()->email, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::submit('Valider', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::close() !!}
+                    </div>
+                @else
+                    <div class="font-weight-bold">{{ Auth::user()->name }}</div>
+                    <div>{{ Auth::user()->email }}</div>
+                    <div>ID : {{ Auth::user()->id }}</div>
+                @endif
             </div>
 
             <div class="col-md-3 pt-3">

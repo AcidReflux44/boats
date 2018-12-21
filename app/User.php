@@ -10,6 +10,27 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function boats()
+    {
+        return $this->belongsToMany(Boats::class);
+    }
+
+    /**
+     * @return bool Si l'utilisateur est un administrateur
+     */
+    public function isAdmin() : bool
+    {
+        return Role::findPrivilege($this->id) == Role::ROLE_ADMIN;
+    }
+
+    /**
+     * @return bool Si l'utilisateur est un gestionnaire de port
+     */
+    public function isManager() : bool
+    {
+        return Role::findPrivilege($this->id) == Role::ROLE_MANAGER;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
