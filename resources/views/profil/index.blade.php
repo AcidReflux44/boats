@@ -9,8 +9,8 @@
     </style>
 @endsection
 @section('droite')
-    <div class="list-group" id="menu-profil">
-        <a href="edit-profil" class="list-group-item list-group-item-action">Modifier profil</a>
+    <div class="profil/edit" id="menu-profil">
+        <a href="/profil/edit" class="list-group-item list-group-item-action">Modifier profil</a>
         <a class="list-group-item list-group-item-action">liste bâteaux</a>
         <a class="list-group-item list-group-item-action ">liste places</a>
         <a class="list-group-item list-group-item-action">liste maintenances</a>
@@ -31,20 +31,7 @@
 
             <div class="col-md-7">
                 @if(!empty($edit))
-                    {!! Form::open(['url' => 'save-profil', 'class' => 'form']) !!}
-                    <div class="form-group w-50">
-                        {!! Form::text('name', Auth::user()->name, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group w-50">
-                        {!! Form::email('email', Auth::user()->email, ['class' => 'form-control']) !!}
-                    </div>
-                    <div class="form-group">
-                        {!! Form::submit('Valider', ['class' => 'btn btn-primary']) !!}
-                        {!! Form::close() !!}
-                    </div>
-					<div ="form-group">
-						<a class="btn btn-info" href="/changePassword">Changer le mot de passe</a>
-					</div>
+                    @include(profil/edit)
                 @else
                     <div class="font-weight-bold">{{ Auth::user()->name }}</div>
                     <div>{{ Auth::user()->email }}</div>

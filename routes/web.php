@@ -70,6 +70,12 @@ Route::get('edit-profil', function() {
         ->with('edit', 1);
 });
 
+Route::get('profil/edit', function() {
+    return view('profil')
+        ->with('boats', Auth::user()->boats)
+        ->with('edit', 1);
+});
+
 Route::post('save-profil', function(Request $request) {
 
     Auth::user()->update($request->all());
