@@ -21,11 +21,11 @@ class CreateMaintenancesTable extends Migration
             $table->integer('category_id');
 
 
-            $table->integer('boat_id');
+            $table->integer('boat_id')->unsigned();
             $table->foreign('boat_id')->references('id')->on('boats');
 
 
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
 
         });
