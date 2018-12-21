@@ -4,23 +4,28 @@
     <div class="col-sm-3 my-3">
         <div class="card">
 
-            {!! Form::open(['route' => 'places.store'], ['class' => 'form']) !!}
+            {!! Form::model($place_edit,
+				[
+					'method' => 'put',
+					'route' => ['places.update', $place_edit],
+					'class' => 'form'
+				]) !!}
 
             <div class="card-header">
-                Place 10
+                Place {{ $place_edit->id }}
             </div>
             <div class="card-body">
-                    <div class="row">
+                <div class="row">
                     <div class="col">
-                        {!! Form::text('longueur', null, ['class' => 'form-control', 'placeholder' => 'Longueur']) !!}
+                        {!! Form::text('longueur', $place_edit->longueur, ['class' => 'form-control', 'placeholder' => 'Longueur']) !!}
                     </div>
                     <div class="col">
-                        {!! Form::text('largeur', null, ['class' => 'form-control', 'placeholder' => 'Largeur']) !!}
+                        {!! Form::text('largeur', $place_edit->largeur, ['class' => 'form-control', 'placeholder' => 'Largeur']) !!}
                     </div>
                 </div>
                 <div class="row mt-1">
                     <div class="col">
-                        {!! Form::text('tarif', null, ['class' => 'form-control', 'placeholder' => 'Tarif']) !!}
+                        {!! Form::text('tarif', $place_edit->tarif, ['class' => 'form-control', 'placeholder' => 'Tarif']) !!}
                     </div>
                 </div>
             </div>

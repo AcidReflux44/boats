@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Queen's Mary boat</h5>
                             <p class="card-text">Vide</p>
-                            <a class="btn btn-primary">Editer</a>
+                            <a href="{{ URL::route('places.edit', $place) }}" class="btn btn-primary">Editer</a>
                         </div>
                         <div class="card-footer text-muted">
                             <div class="text-left">{{ $place->longueur }}x{{ $place->largeur }}m</div>

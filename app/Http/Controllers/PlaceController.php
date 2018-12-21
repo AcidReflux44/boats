@@ -63,7 +63,9 @@ class PlaceController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('places.edit')
+            ->with('place_edit', Place::findOrFail($id))
+            ->with('places', Place::all()->reverse());
     }
 
     /**
@@ -75,7 +77,10 @@ class PlaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $place = Place::findOrFail($id);
+        $place->update($request->input());
+
+        return redirect()->route('places.index');
     }
 
     /**
