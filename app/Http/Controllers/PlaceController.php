@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Place;
 use Illuminate\Http\Request;
 
 class PlaceController extends Controller
@@ -13,7 +14,8 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        //
+        return view('places.index')
+            ->with('places', Place::all()->reverse());
     }
 
     /**
@@ -23,7 +25,8 @@ class PlaceController extends Controller
      */
     public function create()
     {
-        //
+        return view('places.create')
+            ->with('places', Place::all()->reverse());
     }
 
     /**
@@ -34,7 +37,10 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Place::create(
+            $request->input() + ['nom-image' => 'images/image.svg']
+        );
+        return redirect()->route('places.index');
     }
 
     /**

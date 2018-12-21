@@ -106,3 +106,4 @@ Route::post('change/password', function(){
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('reservation', 'reservation');
+Route::resource('places', 'PlaceController');
