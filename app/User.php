@@ -12,7 +12,7 @@ class User extends Authenticatable
 
     public function boats()
     {
-        return $this->belongsToMany(Boats::class);
+        return $this->belongsToMany('App\Boat');
     }
 
     /**

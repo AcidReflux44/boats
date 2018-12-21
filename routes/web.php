@@ -1,6 +1,6 @@
 <?php
 
-use App\Boats;
+use App\Boat;
 use Illuminate\Http\Request;
 // use App\Http\Controllers;
 
@@ -57,12 +57,12 @@ Route::resource('boats', 'BoatsController');
 
 Route::get('profil', function() {
     return view('profil')
-        ->with('boats', Auth::user()->boats());
+        ->with('boats', Auth::user()->boats);
 });
 
 Route::get('edit-profil', function() {
     return view('profil')
-        ->with('boats', Auth::user()->boats())
+        ->with('boats', Auth::user()->boats)
         ->with('edit', 1);
 });
 

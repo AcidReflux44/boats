@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Boats;
+use App\Boat;
 use Illuminate\Http\Request;
 
 class BoatsController extends Controller
@@ -36,7 +36,7 @@ class BoatsController extends Controller
      */
     public function store(Request $request)
     {
-        $boat = Boats::create(
+        $boat = Boat::create(
 			$request->input() + [
                 'date_construction' => '2000/01/01'
             ]
@@ -56,7 +56,7 @@ class BoatsController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $boat = Boats::findOrFail($id);
+        $boat = Boat::findOrFail($id);
         return view('boats.show')->with('boat', $boat);
     }
 
@@ -68,7 +68,7 @@ class BoatsController extends Controller
      */
     public function edit($id)
     {
-        $boat = Boats::findOrFail($id);
+        $boat = Boat::findOrFail($id);
         return view ('boats.edit')->with('boat',$boat);
     }
 
@@ -97,7 +97,7 @@ class BoatsController extends Controller
      */
     public function destroy($id)
     {
-        $boat = Boats::findOrFail($id);
+        $boat = Boat::findOrFail($id);
         $boat->delete();
 		return redirect('profil')
 			->with('message', 'Le bateau a été correctement effacé');
