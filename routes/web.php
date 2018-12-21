@@ -107,3 +107,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('reservation', 'reservation');
 Route::resource('places', 'PlaceController');
+Route::view('reservations-en-attente', 'reservations-en-attente');
+
+Route::view('manage/reservations', 'reservations.index');

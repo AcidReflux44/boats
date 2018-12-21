@@ -12,6 +12,8 @@
                     <th>Port</th>
                     <th>Longueur</th>
                     <th>Largeur</th>
+                    <th>Date début</th>
+                    <th>Date fin</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +26,8 @@
                         <td>Miama Bitch</td>
                         <td>{{ $reservation->longueur }}</td>
                         <td>{{ $reservation->largeur }}</td>
+                        <td>2000/01/01</td>
+                        <td>2001/01/01</td>
                     </tr>
                 @endforeach
             </tbody>
