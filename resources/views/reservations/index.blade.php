@@ -31,7 +31,7 @@
                             <td>2001/01/01</td>
                             <td>
                                 <a class="btn btn-danger">Refuser</a>
-                                <a href="{!! URL::route('reservations.edit', $reservation) !!}" class="btn btn-success">Affecter à une place</a>
+                                <a href="#" class="btn btn-success">Affecter à une place</a>
                             </td>
                         </tr>
                     @endforeach
