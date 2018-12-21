@@ -9,7 +9,6 @@ class Role extends Model
     const ROLE_USER = 0;
     const ROLE_MANAGER = 1;
     const ROLE_ADMIN = 2;
-    public $timestamps = false;
 
     /**
      * @return int Le niveau de privilège de l'utilisateur
