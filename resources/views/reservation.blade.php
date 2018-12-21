@@ -3,7 +3,7 @@
 
 @section('annuel')	<div class ="row">
     <div class ="col">
-        {!! Form::open(['route' => 'boats.create'], ['class' => 'form']) !!}
+        {!! Form::open(['route' => 'reservations.create'], ['class' => 'form']) !!}
         <div class ="form-group">
             {!! Form::label('longueur','Longueur :',
                 ['class'=>'control-label'])
@@ -41,7 +41,7 @@
 
 @section('periode')
     <div class ="col">
-        {!! Form::open(['route' => 'boats.create'], ['class' => 'form']) !!}
+        {!! Form::open(['route' => 'reservations.create'], ['class' => 'form']) !!}
         <div class ="form-group">
             {!! Form::label('longueur','Longueur :',
                 ['class'=>'control-label'])
@@ -111,6 +111,9 @@
         @default
             @yield('selection')
     @endswitch
-
-    <a class="btn btn-info" href="http://localhost/profil">Retour au profil</a>
+    <div class=""form-group row mb-0">
+        <div class="col-md-6 offset-md-4">
+            <a class="btn btn-info" href="http://localhost/profil">Retour au profil</a>
+        </div>
+    </div>
 @endsection

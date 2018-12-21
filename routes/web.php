@@ -59,6 +59,8 @@ Route::resource('boats', 'BoatsController');
 
 Route::resource('profil', 'ProfilController');
 
+Route::resource('reservations', 'ReservationController');
+
 Route::get('profil', function() {
     return view('profil')
         ->with('boats', Auth::user()->boats);;

@@ -32,8 +32,8 @@
 			footer {
 				background-color: #736699;
 				position: relative;
-				height: 65px;
-				margin-top: -65px;
+				height: 70px;
+				margin-top: -75px;
 				clear: both;
 			}
 		</style>
