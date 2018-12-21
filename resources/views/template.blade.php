@@ -26,14 +26,14 @@
 				height: 100%;
 			}
 			#main-container {
-				min-height: 100%
+				min-height: 100%;
 				padding-bottom: 70px;
 			}
 			footer {
 				background-color: #736699;
 				position: relative;
-				height: 70px;
-				margin-top: -70px;
+				height: 65px;
+				margin-top: -65px;
 				clear: both;
 			}
 		</style>
