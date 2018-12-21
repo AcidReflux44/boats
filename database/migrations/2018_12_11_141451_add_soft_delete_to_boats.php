@@ -25,7 +25,6 @@ class AddSoftDeleteToBoats extends Migration
      */
     public function down()
     {
-        /**/
         Schema::table('boats', function (Blueprint $table) {
             $table->dropColumn('delete_at');
         });
