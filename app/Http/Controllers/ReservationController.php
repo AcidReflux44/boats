@@ -71,6 +71,14 @@ class ReservationController extends Controller
         return view('reservations.show')->with('reservation', $res);
     }
 
+    public function update(Request $request, $id)
+    {
+        $res = Reservation::findOrFail($id);
+        $res->update($request->input());
+
+        return redirect()->route('reservations.index');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -86,11 +94,8 @@ class ReservationController extends Controller
             ->where('longueur', '>=', $reservation->longueur)
             ->where('largeur', '>=', $reservation->largeur);
 
-        $places_incompatibles = ;
-
         return view('reservations.edit')
-            ->with('reservation', $reservation)
-            ->with('places', $places->diff($places_incompatibles));
+            ->with('reservation', $reservation);
     }
 
     /**

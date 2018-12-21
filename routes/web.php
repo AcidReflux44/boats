@@ -44,6 +44,7 @@ Route::get('plusInfo', function () {
     return view('plusInfo');
 });
 
+Route::view('boats/list', 'boats.list');
 Route::resource('boats', 'BoatsController');
 Route::resource('profil', 'ProfilController');
 Route::resource('reservations', 'ReservationController');

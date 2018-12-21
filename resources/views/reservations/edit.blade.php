@@ -4,15 +4,30 @@
  *  $reservation : reservation à modifier
  *  $places : liste des places compatibles avec $reservation
  *
-**/
+**
 
 
+$places = Places::all();
 $selections = [];
+
+foreach($places as $place)
+{
+    if(DB::table('reservations')->whereColumn([
+            ['date_debut', '>=', $reservation->date_debut],
+            ['date_fin', '<=', $reservation->date_debut]
+        ])->orWhereColumn([
+            ['date_debut', '>=', $reservation->date_fin],
+            ['date_fin', '<=', $reservation->date_fin]
+        ]))
+    {
+        $place_id =
+    }
+}
 
 foreach($places as $place)
     $selection[$place->id] = $place->id;
 ?>
-
+*/
 
 @extends('template')
 @section('titre', 'Affecter à une place')
@@ -27,10 +42,10 @@ foreach($places as $place)
 
    <div class="row">
         <div class="col">
-            {!! Form::label('place', 'Place : ', ['class' => 'control-label']) !!}
+            {!! Form::label('place_id', 'Place : ', ['class' => 'control-label']) !!}
         </div>
        <div class="col">
-           {!! Form::select('place', array($selections), ['class' => '']) !!}
+           {!! Form::select('place_id', array($selections), ['class' => '']) !!}
        </div>
     </div>
 

@@ -49,7 +49,8 @@ class MaintenancesController extends Controller
      */
     public function show($id)
     {
-        return view('maintenance.show', Maintenance::findOrFail($id));
+        return view('maintenance.show')
+            ->with('maintenance', Maintenance::findOrFail($id));
     }
 
     /**
@@ -60,7 +61,8 @@ class MaintenancesController extends Controller
      */
     public function edit($id)
     {
-        return view('maintenance.edit', Maintenance::findOrFail($id));
+        return view('maintenance.edit')
+            ->with('maintenance', Maintenance::findOrFail($id));
     }
 
     /**

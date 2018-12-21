@@ -1,6 +1,7 @@
 <?php
 
 use App\User;
+use App\Role;
 use Illuminate\Database\Seeder;
 
 class UserTableSeeder extends Seeder
@@ -13,10 +14,15 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->truncate();
-        User::create([
-            'name' => 'AAA',
-            'email' => "aaa@aaa.com",
-            'password' => bcrypt('aaa')
+        $user = User::create([
+            'name' => 'manager',
+            'email' => "manager@riji.com",
+            'password' => bcrypt('manager')
+        ]);
+
+        Role::create([
+            'user_id' => $user->id,
+            'privilege' => 2
         ]);
     }
 }

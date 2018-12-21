@@ -38,7 +38,7 @@
 			}
 		</style>
 	</head>
-	
+
 	<body>
 		<?php
 		function current_page($uri = "/") {
@@ -50,21 +50,23 @@
 			<div class="titre-site">
 				<h1>Port de Riji</h1>
 			</div>
-			
+
 			<div name="menu-site">
 				<!-- ici il faut voir si on est connectés ou pas pour choisir le bon header -->
 				@if(Auth::guest())
 					@include('includes.header1')
-				@else
-					@include('includes.header2')
+				@elseif(Auth::user()->isManager())
+					@include('includes.header3')
+                @else
+                    @include('includes.header2')
 				@endif
 			</div>
-		
+
 			<div class="container-fluid" id="contenu-page">
 				@yield('contenu')
 			</div>
 		</div>
-		
+
 		<footer class="page-footer font-small">
 			@include('includes.footer')
 		</footer>

@@ -38,13 +38,15 @@
 			<div class="titre-site">
 				<h1>Port de Riji</h1>
 			</div>
-			
+
 			<div name="menu-site">
-				@if(Auth::guest())
-					@include('includes.header1')
-				@else
-					@include('includes.header2')
-				@endif
+                @if(Auth::guest())
+                    @include('includes.header1')
+                @elseif(Auth::user()->isManager())
+                    @include('includes.header3')
+                @else
+                    @include('includes.header2')
+                @endif
 			</div>
 
 			<main class="py-4">
