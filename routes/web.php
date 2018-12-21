@@ -57,12 +57,20 @@ Route::get('plusInfo', function () {
 
 Route::resource('boats', 'BoatsController');
 
+Route::resource('profil', 'ProfilController');
+
 Route::get('profil', function() {
     return view('profil')
         ->with('boats', Auth::user()->boats);
 });
 
 Route::get('edit-profil', function() {
+    return view('profil')
+        ->with('boats', Auth::user()->boats)
+        ->with('edit', 1);
+});
+
+Route::get('profil/edit', function() {
     return view('profil')
         ->with('boats', Auth::user()->boats)
         ->with('edit', 1);
