@@ -61,7 +61,7 @@ Route::resource('profil', 'ProfilController');
 
 Route::get('profil', function() {
     return view('profil')
-        ->with('boats', Auth::user()->boats);
+        ->with('boats', Auth::user()->boats);;
 });
 
 Route::get('edit-profil', function() {
