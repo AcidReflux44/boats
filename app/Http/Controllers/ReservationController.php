@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Place;
 use Illuminate\Support\Facades\Auth;
 use App\Reservation;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+    public function userIndex()
+    {
+        return view('reservations.userIndex')
+            ->with('reservations', Auth::user()->reservations);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,9 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return 'index';
+        return view('reservations.index')
+            ->with('reservations', Reservation::all()
+                ->where('place_id', null));
     }
 
     /**
@@ -31,30 +40,29 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $res = Reservation::create(
-			$request->input() + [
-                'date_debut' => '2000/01/01'
-            ]
-		);
+            $request->input() + ['user_id' => Auth::id()]
+        );
 
         /*je sais pas si c'esst bon*/
-        $user=Auth::user();
-        $res->users()->attach($user->id);
+
+        /*$user = Auth::user();
+        $res->users()->attach($user->id);*/
 
 
-		flash('Reservation enregistré !')->success();
-		return redirect()->route('reservations.show', ['reservation'=>$res]);
+        flash('Reservation enregistré !')->success();
+        return redirect()->action('ReservationController@userIndex');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, $id)
@@ -62,3 +70,38 @@ class ReservationController extends Controller
         $res = Reservation::findOrFail($id);
         return view('reservations.show')->with('reservation', $res);
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+
+        // Places compatibles uniquement
+        $places = Place::all()
+            ->where('longueur', '>=', $reservation->longueur)
+            ->where('largeur', '>=', $reservation->largeur);
+
+        $places_incompatibles = ;
+
+        return view('reservations.edit')
+            ->with('reservation', $reservation)
+            ->with('places', $places->diff($places_incompatibles));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Reservation::findOrFail($id)->delete();
+        return redirect()->route('reservations.index');
+    }
+}

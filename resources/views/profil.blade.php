@@ -22,8 +22,8 @@
         <div class="row mb-4 p-4">
             <div class="col p-0">
                 <a role="button" href="{!! URL::route('boats.create')!!}" class="btn btn-sm btn-danger m-1"><span class="fas fa-plus"></span> Ajouter bâteau</a>
-                <a role="button" href="reservation" class="btn btn-sm btn-warning m-1"><span class="fas fa-question"></span> Demande reservation</a>
-                <a role="button" href="#" class="btn btn-sm btn-dark m-1"><span class="fas fa-wrench"></span> Ajouter maintenance</a>
+                <a role="button" href="{!! URL::route('reservations.create') !!}" class="btn btn-sm btn-warning m-1"><span class="fas fa-question"></span> Demande reservation</a>
+                <a role="button" href="{!! URL::route('maintenances.create') !!}" class="btn btn-sm btn-dark m-1"><span class="fas fa-wrench"></span> Ajouter maintenance</a>
                 <a href="/reservations-en-attente">Réservations en attente</a>
             </div>
         </div>

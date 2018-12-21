@@ -15,6 +15,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Boat');
     }
 
+    public function reservations()
+    {
+        return $this->hasMany('App\Reservation');
+    }
+
     /**
      * @return bool Si l'utilisateur est un administrateur
      */

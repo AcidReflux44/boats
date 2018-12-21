@@ -28,17 +28,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('{n}', function ($n) {
-    return "Je suis la page $n";
-})->where('n', '[1-3]');
-
-
-Route::get('article/{n}', 'ArticleController@show')->where('n', '[0-9]+');
-
-Route::get('facture/{n}', function ($n) {
-    return view('facture')->with('numero',$n);
-})->where('n', '[0-9]+');
-
 Route::get('accueil', function () {
     return view('accueil');
 });
@@ -56,14 +45,15 @@ Route::get('plusInfo', function () {
 });
 
 Route::resource('boats', 'BoatsController');
-
 Route::resource('profil', 'ProfilController');
-
 Route::resource('reservations', 'ReservationController');
+Route::resource('maintenances', 'MaintenancesController');
+
+Route::get('reservations-en-attente', 'ReservationController@userIndex');
 
 Route::get('profil', function() {
     return view('profil')
-        ->with('boats', Auth::user()->boats);;
+        ->with('boats', Auth::user()->boats);
 });
 
 Route::get('edit-profil', function() {
@@ -107,8 +97,7 @@ Route::post('change/password', function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::view('reservation', 'reservation');
+//Route::view('reservation', 'reservation');
 Route::resource('places', 'PlaceController');
-Route::view('reservations-en-attente', 'reservations-en-attente');
 
 Route::view('manage/reservations', 'reservations.index');

@@ -20,6 +20,7 @@
                 @foreach($reservations as $reservation)
                     <tr scope="row">
                         <td>{{ $reservation->id }}</td>
+                        <td>Port de Riji</td>
                         <td>{{ $reservation->longueur }}</td>
                         <td>{{ $reservation->largeur }}</td>
                         <td>{{ $reservation->date_debut }}</td>

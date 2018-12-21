@@ -10,7 +10,7 @@ class Reservation extends Model {
 
     use SoftDeletes;
 
-    public function users()
+    /*public function users()
     {
         return $this->belongsToMany(User::class);
     }
@@ -18,18 +18,30 @@ class Reservation extends Model {
     public function boats()
     {
         return $this->belongsToMany(Boat::class);
+    }*/
+
+    public function getUser()
+    {
+        return User::find($this->user_id);
     }
 
-    /*protected $dates=[
+    public function getPlace()
+    {
+        return Place::find($this->place_id);
+    }
+
+    protected $dates=[
 		'created_at',
 		'deleted_at',
 		'started_at',
 		'update_at'
-	];*/
+	];
 	
 	protected $fillable = [
 		'place_id',
 		'user_id',
+        'longueur',
+        'largeur',
 		'date_debut',
 		'date_fin',
 	];

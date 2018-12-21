@@ -2,46 +2,44 @@
 @section ('contenu')
 	<div class ="row">
 		<div class ="col">
-			{!! Form::open(['route'=>'boats.store'],['class'=>'form']) !!}
-			<div class ="form-group ">
-				{!! Form::label('nom','Nom du bateau :',
-					['class'=>'control-label'])
-				!!}
-				{!! Form::text('nom', null, [
-						'class'=>'form-control input-lg',
-						'placeholder'=>'mon bateau'
-					])
-				!!}
-			</div>
+			{!! Form::open(['route'=>'reservations.store'],['class'=>'form']) !!}
 			<div class ="form-group">
-				{!! Form::label('modele','Marque et type : ',
-					['class'=>'control-label'])
-				!!}
-				{!! Form::text('modele', null, [
-						'class'=>'form-control input-lg',
-						'placeholder'=>'modèle du bateau'
-					])
-				!!}
-			</div>
-			<div class ="form-group">
-				{!! Form::label('longueur','Longueur : ',
-					['class'=>'control-label'])
-				!!}
+				{!! Form::label('longueur','Longueur :',
+                    ['class'=>'control-label'])
+                !!}
 				{!! Form::text('longueur', null, [
-						'class'=>'form-control input-lg',
-						'placeholder'=>'longueur du bateau'
-					])
-				!!}
+                        'class'=>'form-control input-lg',
+                        'placeholder'=>'Longueur'
+                    ])
+                !!}
 			</div>
 			<div class ="form-group">
-				{!! Form::label('largeur','Largeur : ',
-					['class'=>'control-label'])
-				!!}
+				{!! Form::label('largeur','Largeur :',
+                    ['class' => 'control-label'])
+                !!}
 				{!! Form::text('largeur', null, [
-						'class'=>'form-control input-lg',
-						'placeholder'=>'largeur du bateau'
-					])
-				!!}
+                        'class' => 'form-control input-lg',
+                        'placeholder' => 'Largeur'
+                    ])
+                !!}
+			</div>
+			<div class ="form-group">
+				{!! Form::label('date_debut','À partir du :',
+                    ['class' => 'control-label'])
+                !!}
+				{!! Form::date('date_debut', date("Y-m-d"), [
+                        'class' => 'form-control input-lg'
+                    ])
+                !!}
+			</div>
+			<div class ="form-group">
+				{!! Form::label('date_fin','Date fin :',
+                    ['class' => 'control-label'])
+                !!}
+				{!! Form::date('date_fin', date("Y-m-d", strtotime("+1 month")), [
+                        'class' => 'form-control input-lg'
+                    ])
+                !!}
 			</div>
 			{!! Form::submit(); Form::close() !!}
 		</div>
