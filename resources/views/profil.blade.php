@@ -91,6 +91,9 @@
             <div class="col-md-12">
                 <ul class="list-group">
                     <h5>Ma Liste de Places</h5>
+                    <?php
+                    use App\Boat;
+                    use App\Place;?>
                 </ul>
             </div>
         </div>

@@ -14,6 +14,11 @@ class Boat extends Model {
         return $this->belongsToMany(User::class);
     }
 
+    public function place()
+    {
+        return $this->belongsToMany(Place::class);
+    }
+
     protected $dates=[
 		'created_at',
 		'deleted_at',
