@@ -57,6 +57,8 @@ Route::get('plusInfo', function () {
 
 Route::resource('boats', 'BoatsController');
 
+Route::resource('profil', 'ProfilController');
+
 Route::get('profil', function() {
     return view('profil')
         ->with('boats', Auth::user()->boats);
