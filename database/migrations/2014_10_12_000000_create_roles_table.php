@@ -15,9 +15,8 @@ class CreateRolesTable extends Migration
     {
         Schema::create('roles', function(Blueprint $table) {
 
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('privilege'); // 1: Gestionnaire de port, 2: Admin
+            $table->increments('id'); // 2: Gestionnaire de port, 3: Admin, 1:user
+            $table->string('privilege'); 
         });
     }
 
