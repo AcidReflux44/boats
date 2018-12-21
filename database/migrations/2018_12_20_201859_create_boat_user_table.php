@@ -16,7 +16,7 @@ class CreateBoatUserTable extends Migration
         Schema::create('boat_user', function(Blueprint $table) {
 
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Supprime automatiquement la relation quand on supprime le modèle
 
             $table->integer('boat_id')->unsigned();
             $table->foreign('boat_id')->references('id')->on('boats')->onDelete('cascade');

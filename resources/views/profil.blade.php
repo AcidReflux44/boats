@@ -33,7 +33,7 @@
                 @if(!empty($edit))
                     {!! Form::open(['url' => 'save-profil', 'class' => 'form']) !!}
                     <div class="form-group w-50">
-                        {!! Form::text('name', Auth::user()->name, ['class' => 'form-control']) !!}
+                        {!! Form::text('name', Auth::user()->name, ['class' => 'form-control', 'autocomplete' => 'off']) !!}
                     </div>
                     <div class="form-group w-50">
                         {!! Form::email('email', Auth::user()->email, ['class' => 'form-control']) !!}
